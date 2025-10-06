@@ -4,6 +4,7 @@ import finger1 from '../assets/Applogo.png'
 import finger2 from '../assets/busineescard.jpeg'
 import powder1 from '../assets/Applogo.png'
 import powder2 from '../assets/busineescard.jpeg'
+import MainImaage from '../assets/MainImage.png'
 
 export default function Home() {
   // Slider state
@@ -31,7 +32,7 @@ export default function Home() {
         <div className="hero-left">
           <h1>Pure Turmeric. Trusted Quality.</h1>
           <p>
-            Ishwar Trading Company supplies premium turmeric products — from raw roots to fine powder —
+            Aniket Traders supplies premium turmeric products — from raw roots to fine powder —
             suitable for retailers and manufacturers. Browse our selection and contact us for pricing.
           </p>
           <div className="hero-cta">
@@ -41,7 +42,7 @@ export default function Home() {
         </div>
         <div className="hero-right">
           <div className="card-animate">
-            <img src={busCard} alt="Business card" />
+            <img src={MainImaage} alt="Business card" />
           </div>
         </div>
       </div>

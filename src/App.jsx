@@ -39,7 +39,7 @@ function App() {
       <Navbar navigate={navigate} current={route} />
       <main className="main-content">{Page}</main>
       <Footer />
-      <WhatsAppFab phoneNumber="+911234567890" />
+      <WhatsAppFab phoneNumber="+919579781438" />
     </div>
   )
 }

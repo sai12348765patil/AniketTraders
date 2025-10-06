@@ -14,10 +14,10 @@ export default function Contact() {
         }
 
         const text = encodeURIComponent(
-            `Hello, this is a query from Ishwar Trading Company's website:\n\n` +
+            `Hello, this is a query from Aniket Traders website:\n\n` +
             `Full Name: ${fullName}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
         );
-        window.open(`https://wa.me/911234567890?text=${text}`, "_blank");
+        window.open(`https://wa.me/9579781438?text=${text}`, "_blank");
     };
 
     return (
@@ -79,16 +79,16 @@ export default function Contact() {
                     <div className="contact-card">
                         <FaPhoneAlt className="icon" />
                         <div>
-                            <p><strong>+91 98765 43210</strong></p>
-                            <p><strong>+91 91234 56789</strong></p>
+                            <p><strong>+91 9579781438</strong></p>
+                            <p><strong>+91 8767485072</strong></p>
                         </div>
                     </div>
 
                     <div className="contact-card">
                         <FaEnvelope className="icon" />
                         <div>
-                            <p>info@ishwartrading.com</p>
-                            <p>sales@ishwartrading.com</p>
+                            <p>anikettrade22@gmail.com</p>
+                            <p>saiprasadkhansole@gmail.com</p>
                         </div>
                     </div>
 
@@ -96,8 +96,8 @@ export default function Contact() {
                         <FaMapMarkerAlt className="icon" />
                         <div>
                             <p>
-                                Head Office: Ishwar Trading Company,<br />
-                                Hyder Bagh, Dashmesh Nagar,<br />
+                                Head Office: Aniket Traders,<br />
+                                New Mondha,<br />
                                 Nanded, Maharashtra – 431602, India
                             </p>
                         </div>

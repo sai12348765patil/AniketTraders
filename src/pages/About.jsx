@@ -3,12 +3,12 @@ import React from 'react'
 export default function About() {
   return (
     <section className="container about-page">
-      <h2>About Ishwar Trading Company</h2>
+      <h2>About Aniket Traders</h2>
 
       <p>
-        At <span className="name-highlighted">Ishwar Trading Company</span> we take pride in being a leading exporter of Indian turmeric,
+        At <span className="name-highlighted">Aniket Traders</span> we take pride in being a leading exporter of Indian turmeric,
         specializing in turmeric finger and turmeric powder. We are passionate about delivering the finest turmeric
-        products. Founded on traditional knowledge and modern quality control, Ishwar Trading Company supplies top-grade
+        products. Founded on traditional knowledge and modern quality control, Aniket Traders supplies top-grade
         turmeric products across domestic and international markets. We focus on traceability, hygiene and consistent quality.
       </p>
 
@@ -103,7 +103,7 @@ export default function About() {
 
         <div className="join-card">
           <p><strong>Partnerships & Sales:</strong> <a href="mailto:saiprasadkhansole@gmail.com">saiprasadkhansole@gmail.com</a></p>
-          <p><strong>Phone / WhatsApp:</strong> <a href="tel:+911234567890">+91 12345 67890</a></p>
+          <p><strong>Phone / WhatsApp:</strong> <a href="tel:+919579781438">+91 9579781438</a></p>
 
           <div className="join-actions">
             <a className="btn" href="mailto:saiprasadkhansole@gmail.com?subject=Partnership%20Enquiry">Email Us</a>
