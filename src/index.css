@@ -1262,76 +1262,72 @@ p {
 .nav-overlay {
   position: fixed;
   inset: 0;
-  z-index: 120;
-  display: flex;
-  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
   justify-content: center;
-  background: rgba(10, 10, 10, 0.5);
-  backdrop-filter: blur(2px);
+  align-items: center;
+  z-index: 2000;
+  transition: opacity 0.3s ease;
   opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .nav-overlay.open {
+  display: flex;
   opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
 }
 
 .overlay-inner {
   background: #fffefb;
-  color: #333;
-  width: 80%;
-  max-width: 280px;
   border-radius: 18px;
-  padding: 16px 18px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  padding: 24px;
+  margin-top: 300px;
+  width: 85%;
+  max-width: 320px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   position: relative;
+  text-align: center;
   animation: popup 0.25s ease;
+  transform: translateY(0);
+}
+
+.overlay-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
 }
 
 .overlay-close {
   position: absolute;
-  top: 8px;
+  top: 10px;
   right: 10px;
-  background: none;
+  background: transparent;
   border: none;
-  color: #555;
-  font-size: 20px;
+  font-size: 1.5rem;
+  color: #444;
   cursor: pointer;
-  transition: color 0.2s;
 }
 
 .overlay-close:hover {
   color: var(--color-primary-dark);
 }
 
-.overlay-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 25px;
-}
-
 .overlay-menu button {
-  width: 100%;
   background: linear-gradient(90deg, #fff9e6, #fff3cc);
   border: 1px solid #f6d365;
   border-radius: 10px;
-  padding: 10px;
-  font-size: 0.95rem;
+  padding: 14px;
+  font-size: 1rem;
   font-weight: 600;
   color: #333;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .overlay-menu button:hover {
- background: linear-gradient(90deg, #fcd34d, #fbbf24);
+  background: linear-gradient(90deg, #fcd34d, #fbbf24);
   color: #fff;
-  transform: translateY(-2px);
+  transform: scale(1.03);
 }
 
 .overlay-menu .active {
@@ -1341,12 +1337,12 @@ p {
 
 @keyframes popup {
   from {
+    transform: scale(0.9);
     opacity: 0;
-    transform: scale(0.95);
   }
   to {
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
   }
 }
 

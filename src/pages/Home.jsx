@@ -5,7 +5,7 @@ import powder1 from '../assets/bubl1.jpeg'
 import powder2 from '../assets/powder1.jpeg'
 import MainImaage from '../assets/MainImage.png'
 
-export default function Home() {
+export default function Home({ navigate, current }) {
   // Slider state
   const [fingerIndex, setFingerIndex] = useState(0)
   const [powderIndex, setPowderIndex] = useState(0)
@@ -35,8 +35,8 @@ export default function Home() {
             suitable for retailers and manufacturers. Browse our selection and contact us for pricing.
           </p>
           <div className="hero-cta">
-            <a className="btn" href="/products">View Products</a>
-            <a className="btn outline" href="/contact">Request Quote</a>
+            <button onClick={()=>navigate("/products")} className="btn">View Products</button>
+            <a className="btn outline" onClick={()=>navigate("/contact")}>Request Quote</a>
           </div>
         </div>
         <div className="hero-right">

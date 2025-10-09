@@ -37,7 +37,7 @@ const products = [
   },
 ];
 
-export default function Products() {
+export default function Products({navigate, current}) {
   return (
     <section className="container products-page">
       <h2>Why Choose Turmeric?</h2>
@@ -67,7 +67,7 @@ export default function Products() {
             <div className="product-info">
               <h3>{p.name}</h3>
               <p>{p.desc}</p>
-              <a href="/contact" className="btn small">
+              <a onClick={()=>navigate("/contact")} className="btn small">
                 Request Quote
               </a>
             </div>
