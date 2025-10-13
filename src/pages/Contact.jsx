@@ -1,12 +1,63 @@
 import React, { useState } from "react";
-import { FaPhoneAlt, FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaFacebook, FaLinkedin } from "react-icons/fa";
+import emailjs from "emailjs-com";
+import {
+    FaPhoneAlt,
+    FaEnvelope,
+    FaWhatsapp,
+    FaMapMarkerAlt,
+    FaFacebook,
+    FaLinkedin,
+} from "react-icons/fa";
 
 export default function Contact() {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
+    const [sending, setSending] = useState(false);
 
+    // ✅ EmailJS send handler
+    const handleEmailSend = (e) => {
+        e.preventDefault();
+
+        if (!fullName || !email || !phone || !message) {
+            alert("Please fill in all fields before submitting.");
+            return;
+        }
+
+        setSending(true);
+
+        const templateParams = {
+            from_name: fullName,
+            from_email: email,
+            from_phone: phone,
+            message: "name :-"+fullName+"  Email :- "+email+"  Phone:- "+phone+" Message:- "+message,
+        };
+
+        emailjs
+            .send(
+                "service_ovi7on5",    // ← Replace with your EmailJS Service ID
+                "template_fimh6kn",   // ← Replace with your EmailJS Template ID
+                templateParams,
+                "u8Ws7VKszmNrI2vlm"     // ← Replace with your EmailJS Public Key
+            )
+            .then(
+                () => {
+                    alert("✅ Message sent successfully! Thank you for contacting us.");
+                    setFullName("");
+                    setEmail("");
+                    setPhone("");
+                    setMessage("");
+                },
+                (error) => {
+                    console.error("EmailJS Error:", error);
+                    alert("❌ Failed to send message. Please try again later.");
+                }
+            )
+            .finally(() => setSending(false));
+    };
+
+    // ✅ WhatsApp send handler
     const handleWhatsAppSend = () => {
         if (!fullName || !email || !phone || !message) {
             alert("Please fill in all fields before submitting.");
@@ -23,11 +74,13 @@ export default function Contact() {
     return (
         <section className="container contact-page">
             <h2>Let's Get in Touch</h2>
-            <p className="lead">We’d love to hear from you. Please fill in your details below.</p>
+            <p className="lead">
+                We’d love to hear from you. Please fill in your details below.
+            </p>
 
             {/* Form Section */}
             <div className="contact-form-box">
-                <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                <form className="contact-form" onSubmit={handleEmailSend}>
                     <div className="form-grid">
                         <label>
                             Full Name
@@ -36,6 +89,7 @@ export default function Contact() {
                                 placeholder="Your full name"
                                 value={fullName}
                                 onChange={(e) => setFullName(e.target.value)}
+                                required
                             />
                         </label>
                         <label>
@@ -45,6 +99,7 @@ export default function Contact() {
                                 placeholder="you@example.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                required
                             />
                         </label>
                         <label>
@@ -54,6 +109,7 @@ export default function Contact() {
                                 placeholder="+91 98765 43210"
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
+                                required
                             />
                         </label>
                     </div>
@@ -64,11 +120,28 @@ export default function Contact() {
                             rows={5}
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
+                            required
                         />
                     </label>
-                    <button className="btn whatsapp-btn" type="button" onClick={handleWhatsAppSend}>
-                        <FaWhatsapp size={18} style={{ marginRight: "8px" }} /> Send via WhatsApp
-                    </button>
+
+                    <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                        <button
+                            className="btn primary-btn"
+                            type="submit"
+                            disabled={sending}
+                        >
+                            {sending ? "Sending..." : "Send via Email"}
+                        </button>
+
+                        <button
+                            className="btn whatsapp-btn"
+                            type="button"
+                            onClick={handleWhatsAppSend}
+                        >
+                            <FaWhatsapp size={18} style={{ marginRight: "8px" }} /> Send via
+                            WhatsApp
+                        </button>
+                    </div>
                 </form>
             </div>
 
@@ -79,8 +152,12 @@ export default function Contact() {
                     <div className="contact-card">
                         <FaPhoneAlt className="icon" />
                         <div>
-                            <p><strong>+91 9579781438</strong></p>
-                            <p><strong>+91 8767485072</strong></p>
+                            <p>
+                                <strong>+91 9579781438</strong>
+                            </p>
+                            <p>
+                                <strong>+91 8767485072</strong>
+                            </p>
                         </div>
                     </div>
 
@@ -96,8 +173,10 @@ export default function Contact() {
                         <FaMapMarkerAlt className="icon" />
                         <div>
                             <p>
-                                Head Office: Aniket Traders,<br />
-                                New Mondha,<br />
+                                Head Office: Aniket Traders,
+                                <br />
+                                New Mondha,
+                                <br />
                                 Nanded, Maharashtra – 431602, India
                             </p>
                         </div>
@@ -109,8 +188,22 @@ export default function Contact() {
             <div className="social-links">
                 <h3>Website & Social Media</h3>
                 <div className="social-icons">
-                    <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-icon fb"><FaFacebook /></a>
-                    <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-icon linkedin"><FaLinkedin /></a>
+                    <a
+                        href="https://facebook.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="social-icon fb"
+                    >
+                        <FaFacebook />
+                    </a>
+                    <a
+                        href="https://linkedin.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="social-icon linkedin"
+                    >
+                        <FaLinkedin />
+                    </a>
                 </div>
             </div>
 

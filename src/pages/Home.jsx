@@ -3,7 +3,7 @@ import finger1 from '../assets/finger1.jpeg'
 import finger2 from '../assets/bubl1.jpeg'
 import powder1 from '../assets/bubl1.jpeg'
 import powder2 from '../assets/powder1.jpeg'
-import MainImaage from '../assets/MainImage.png'
+import MainImaage from '../assets/HomeMainImage.png'
 
 export default function Home({ navigate, current }) {
   // Slider state
