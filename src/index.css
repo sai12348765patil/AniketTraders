@@ -964,7 +964,7 @@ p {
 /* WhatsApp FAB (mobile-friendly size) */
 .whatsapp-fab {
   position: fixed;
-  right: 14px;
+  left: 14px;
   bottom: 14px;
   width: 52px;
   height: 52px;
